@@ -49,7 +49,7 @@ iii. Maven项目通过坐标的方式从本地仓库获取jar包：
 它默认的本地仓库是C:\Users\18254\ .m\repository下，但是我的却没有这个文件夹，不过也没有关系，反正修改settings.xml后让本地仓库不是这个就行，当然我们也可以尝试解决这个问题。[方法](https://blog.csdn.net/qq_42479830/article/details/99686707?depth_1-utm_source=distribute.pc_relevant.none-task&utm_source=distribute.pc_relevant.none-task)
 
 原始的settings.xml是这样的：
-<img src="E:%5CMarkDown%E6%96%87%E4%BB%B6%5CMaven%E5%AD%A6%E4%B9%A0%5Cimage-20200317115144772.png" alt="image-20200317115144772"  />
+<img src="image-20200317115144772.png" alt="image-20200317115144772"  />
 
 仓库修改到C:\Program Files\Maven\repository，修改settings.xml
 ![image-20200317115545460](image-20200317115545460.png)
@@ -58,11 +58,11 @@ iii. Maven项目通过坐标的方式从本地仓库获取jar包：
 
 **i. Maven三种仓库概念：本地仓库、远程仓库、中央仓库**
 
-![image-20200317134030573](E:%5CMarkDown%E6%96%87%E4%BB%B6%5CMaven%E5%AD%A6%E4%B9%A0%5Cimage-20200317134030573.png)
+![image-20200317134030573](image-20200317134030573.png)
 
 **ii.配置远程仓库（阿里云仓库镜像，可能jar包不是很全）**
 在settings.xml文件中的mirrors下添加mirror标签。
-![image-20200317134546120](E:%5CMarkDown%E6%96%87%E4%BB%B6%5CMaven%E5%AD%A6%E4%B9%A0%5Cimage-20200317134546120.png)
+![image-20200317134546120](image-20200317134546120.png)
 现在配置完了，当本地包不够的时候就去阿里云下载jar包了。这个找jar过的过程就像域名解析一样。
 
 ### 三、清晰的项目结构
@@ -71,7 +71,7 @@ iii. Maven项目通过坐标的方式从本地仓库获取jar包：
 
 i. 大型商城项目按业务分成商品管理、用户管理、订单管理等等模块。
 
-![img](E:%5CMarkDown%E6%96%87%E4%BB%B6%5CMaven%E5%AD%A6%E4%B9%A0%5Cwps1.jpg)
+![img](wps1.jpg)
 
 ​                                                                            (大型项目，分模块开发)
 
@@ -79,7 +79,7 @@ i. 大型商城项目按业务分成商品管理、用户管理、订单管理�
 
 ii. 中小型项目按照传统项目分为Web、Service、Dao层，依照员工自身的业务能力分配工作。
 
-![img](E:%5CMarkDown%E6%96%87%E4%BB%B6%5CMaven%E5%AD%A6%E4%B9%A0%5Cwps2.jpg)
+![img](wps2.jpg)
 
 
 ​                                                                         (中小型项目，分层开发)
@@ -99,11 +99,11 @@ $ cd 项目目录
 $ mvn tomcat:run
 ```
 
-<img src="E:%5CMarkDown%E6%96%87%E4%BB%B6%5CMaven%E5%AD%A6%E4%B9%A0%5Cimage-20200317141345600.png" alt="image-20200317141345600" style="zoom: 67%;" />
+<img src="image-20200317141345600.png" alt="image-20200317141345600" style="zoom: 67%;" />
 
 **会新产生一个target文件**
 
-<img src="E:%5CMarkDown%E6%96%87%E4%BB%B6%5CMaven%E5%AD%A6%E4%B9%A0%5Cimage-20200317143433869.png" alt="image-20200317143433869" style="zoom:33%;" />
+<img src="image-20200317143433869.png" alt="image-20200317143433869" style="zoom:33%;" />
 
 成功运行。弹幕里说人说他们有的失败了，估计是没联网，要么就没有设置好仓库jar包下的太慢了。
 
@@ -114,7 +114,7 @@ http://localhost:8080/HelloMaven
 **解决：**
 有意思的是当我安装了tomcat并start后，上面的命令就不好用了，可能是因为占用了端口。
 然后更有意思的是，我想一开始没打开是因为视频里要在URL后面加**/test**，我没看见，所以没打开，后来我下载安装了Tomcat并打开后，并且加上了test后还是不好使，这时候我想明白了，得关上刚下载的tomcat把8080端口让出来，再后来真就成功打开了。😋
-<img src="E:%5CMarkDown%E6%96%87%E4%BB%B6%5CMaven%E5%AD%A6%E4%B9%A0%5Cimage-20200317144109705.png" alt="image-20200317144109705" style="zoom: 67%;" />
+<img src="image-20200317144109705.png" alt="image-20200317144109705" style="zoom: 67%;" />
 
 #### 5.2pom.xml
 
@@ -123,7 +123,7 @@ http://localhost:8080/HelloMaven
 
 > **Maven文件下的pom.xml下**
 
-<img src="E:%5CMarkDown%E6%96%87%E4%BB%B6%5CMaven%E5%AD%A6%E4%B9%A0%5Cimage-20200317144924605.png" alt="image-20200317144924605" style="zoom: 67%;" />
+<img src="image-20200317144924605.png" alt="image-20200317144924605" style="zoom: 67%;" />
 
 <dependencies><!-- 依赖标签 配置项目中依赖的jar包坐标 -->
 	下面这三个依赖标签里面就是坐标信息，由公司名/组织名（groupId）+项目名/子项目名（artifactId）+版本号（version）组成，可以在本地的repository找到，如果本地没有，run命令的时候就能去阿里云下载/或者中央仓库。
