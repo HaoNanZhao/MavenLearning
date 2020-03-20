@@ -52,7 +52,7 @@ iii. Maven项目通过坐标的方式从本地仓库获取jar包：
 <img src="E:%5CMarkDown%E6%96%87%E4%BB%B6%5CMaven%E5%AD%A6%E4%B9%A0%5Cimage-20200317115144772.png" alt="image-20200317115144772"  />
 
 仓库修改到C:\Program Files\Maven\repository，修改settings.xml
-![image-20200317115545460](E:%5CMarkDown%E6%96%87%E4%BB%B6%5CMaven%E5%AD%A6%E4%B9%A0%5Cimage-20200317115545460.png)
+![image-20200317115545460](image-20200317115545460.png)
 
 #### 2.3设置阿里云Maven仓库镜像
 
